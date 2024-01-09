@@ -23,7 +23,7 @@ repositories {
 
 sonar {
 	properties {
-		property("sonar.projectKey", "iuryamaral1_foodgiver")
+		property("sonar.projectKey", "iuryamaral1_oli-saude-backend-challenge")
 		property("sonar.organization", "iuryamaral1-github")
 		property("sonar.host.url", "https://sonarcloud.io")
 	}
