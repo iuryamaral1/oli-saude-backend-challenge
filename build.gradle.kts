@@ -58,3 +58,12 @@ tasks.withType<Test> {
 jacoco {
 	toolVersion = "0.8.7"
 }
+
+tasks {
+	jacocoTestReport {
+		dependsOn("test")
+		reports {
+			xml.required = true
+		}
+	}
+}
