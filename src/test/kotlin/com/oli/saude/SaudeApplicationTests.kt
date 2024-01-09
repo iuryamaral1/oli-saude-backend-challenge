@@ -4,10 +4,9 @@ import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class SaudeApplicationTests {
+class SaudeApplicationTests : TestIntegration() {
 
 	@Test
 	fun contextLoads() {
 	}
-
 }
