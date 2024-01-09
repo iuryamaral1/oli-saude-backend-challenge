@@ -1,6 +1,19 @@
-![Oli Saúde|100x397,20%](https://hs-7708371.f.hubspotfree.net/hub/7708371/hubfs/logo-olisaude.png?upscale=true&width=288&upscale=true&name=logo-olisaude.png) 
+![Oli Saúde|100x397,20%](https://hs-7708371.f.hubspotfree.net/hub/7708371/hubfs/logo-olisaude.png?upscale=true&width=288&upscale=true&name=logo-olisaude.png)
 
 # ✨Oli Saúde Backend Challenge✨
+
+[![.github/workflows/main.yml](https://github.com/iuryamaral1/oli-saude-backend-challenge/actions/workflows/main.yml/badge.svg)](https://github.com/iuryamaral1/oli-saude-backend-challenge/actions/workflows/main.yml)
+[![Sonarcloud Status](https://sonarcloud.io/api/project_badges/measure?project=iuryamaral1_oli-saude-backend-challenge&metric=alert_status)](https://sonarcloud.io/project/overview?id=iuryamaral1_oli-saude-backend-challenge)
+[![Code Coverage](https://sonarcloud.io/api/project_badges/measure?project=iuryamaral1_oli-saude-backend-challenge&metric=coverage)](https://sonarcloud.io/component_measures?metric=coverage&id=iuryamaral1_oli-saude-backend-challenge)
+[![Reliability](https://sonarcloud.io/api/project_badges/measure?project=iuryamaral1_oli-saude-backend-challenge&metric=reliability_rating)](https://sonarcloud.io/component_measures?metric=reliability_rating&id=iuryamaral1_oli-saude-backend-challenge)
+[![Security](https://sonarcloud.io/api/project_badges/measure?project=iuryamaral1_oli-saude-backend-challenge&metric=security_rating)](https://sonarcloud.io/component_measures?metric=security_rating&id=iuryamaral1_oli-saude-backend-challenge)
+[![Maintainability](https://sonarcloud.io/api/project_badges/measure?project=iuryamaral1_oli-saude-backend-challenge&metric=sqale_rating)](https://sonarcloud.io/component_measures?metric=sqale_rating&id=iuryamaral1_oli-saude-backend-challenge)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=iuryamaral1_oli-saude-backend-challenge&metric=duplicated_lines_density)](https://sonarcloud.io/component_measures?metric=duplicated_lines_density&id=iuryamaral1_oli-saude-backend-challenge)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=iuryamaral1_oli-saude-backend-challenge&metric=ncloc)](https://sonarcloud.io/component_measures?metric=ncloc&id=iuryamaral1_oli-saude-backend-challenge)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=iuryamaral1_oli-saude-backend-challenge&metric=sqale_index)](https://sonarcloud.io/component_measures?metric=sqale_index&id=iuryamaral1_oli-saude-backend-challenge)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=iuryamaral1_oli-saude-backend-challenge&metric=vulnerabilities)](https://sonarcloud.io/component_measures?metric=vulnerabilities&id=iuryamaral1_oli-saude-backend-challenge)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=iuryamaral1_oli-saude-backend-challenge&metric=bugs)](https://sonarcloud.io/component_measures?metric=bugs&id=iuryamaral1_oli-saude-backend-challenge)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=iuryamaral1_oli-saude-backend-challenge&metric=code_smells)](https://sonarcloud.io/component_measures?metric=code_smells&id=iuryamaral1_oli-saude-backend-challenge)
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
@@ -92,13 +105,13 @@ When application is started, then you may go to: http://localhost:8080/swagger-u
 
 ### 📈 <ins>SonarCloud</ins>
 
-This project is integrated with SonarCloud. You can check the status of the project [here](https://sonarcloud.io/dashboard?id=iuryamaral1_oli-saude-challenge).
+This project is integrated with SonarCloud. You can check the status of the project [here](https://sonarcloud.io/project/overview?id=iuryamaral1_oli-saude-backend-challenge).
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 ### 👲 <ins>CI/CD</ins>
 
-This project is integrated with GitHub Actions. You can check the status of the project [here]()
+This project is integrated with GitHub Actions. You can check the status of the project [here](https://github.com/iuryamaral1/oli-saude-backend-challenge/actions/workflows/main.yml).
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
