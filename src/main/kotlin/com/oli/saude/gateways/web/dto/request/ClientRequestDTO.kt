@@ -9,6 +9,7 @@ import jakarta.validation.constraints.Size
 import org.springframework.format.annotation.DateTimeFormat
 import java.time.LocalDate
 import java.time.LocalDateTime
+import java.util.*
 
 data class ClientRequestDTO(
     @field:NotBlank(message = "name is required")
@@ -24,7 +25,8 @@ data class ClientRequestDTO(
     val birthDate: LocalDate
 ) {
 
-    fun toDomain() = Client(
+    fun toDomain(id: UUID? = null) = Client(
+        id = id,
         name = name,
         sex = sex,
         birthDate = birthDate,
