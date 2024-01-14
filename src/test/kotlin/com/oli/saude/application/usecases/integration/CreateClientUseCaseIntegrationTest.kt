@@ -1,4 +1,4 @@
-package com.oli.saude.application.usecases
+package com.oli.saude.application.usecases.integration
 
 import com.oli.saude.TestIntegration
 import com.oli.saude.application.usecases.clients.CreateClientUseCase
@@ -8,6 +8,7 @@ import com.oli.saude.domain.models.clients.enums.Sex
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.TestInstance
 import org.junit.jupiter.api.assertThrows
 import org.springframework.beans.factory.annotation.Autowired
 import java.time.LocalDate
