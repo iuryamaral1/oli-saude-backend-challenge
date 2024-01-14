@@ -29,7 +29,6 @@
 - [📈 SonarCloud](#-sonarcloud)
 - [👲 CI/CD](#-cicd)
 - [📝 Further documentation](#-further-documentation)
-- [👨 Author](#-author)
 - [📱 Contact](#-contact)
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
@@ -137,3 +136,15 @@ This project is integrated with GitHub Actions. You can check the status of the 
 <a href="mailto:iurydrayton@gmail.com">
     <img src="https://img.shields.io/badge/iurydrayton@gmail.com-Gmail-red?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail Badge"/>
 </a>
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+### To Do List
+
+- [x] Create a client
+- [x] Update a client
+- [ ] Get specific client
+- [ ] Get all clients
+- [ ] Add client's health problems
+- [ ] Remove client's health problems
+- [ ] Create endpoint to get the top 10 clients with more health problems
