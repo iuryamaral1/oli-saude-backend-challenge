@@ -1,10 +1,11 @@
 package com.oli.saude
 
 import org.flywaydb.core.Flyway
-import org.junit.jupiter.api.extension.AfterEachCallback
-import org.junit.jupiter.api.extension.BeforeEachCallback
+import org.junit.jupiter.api.extension.AfterAllCallback
+import org.junit.jupiter.api.extension.BeforeAllCallback
 import org.junit.jupiter.api.extension.ExtensionContext
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.test.annotation.DirtiesContext
 import org.springframework.test.context.DynamicPropertyRegistry
 import org.springframework.test.context.DynamicPropertySource
 import org.testcontainers.containers.PostgreSQLContainer
@@ -13,7 +14,13 @@ import org.testcontainers.junit.jupiter.Testcontainers
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @Testcontainers
-abstract class TestIntegration : AfterEachCallback, BeforeEachCallback {
+/*
+* When Spring starts a single instance of the context for all tests.
+* When testcontainers recreate the container, the context is not recreated.
+* So, we need to add this dirties context to activate the dynamic properties again.
+*/
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_CLASS)
+abstract class TestIntegration : AfterAllCallback, BeforeAllCallback {
 
     companion object {
         const val POSTGRES_IMAGE = "postgres:13.2-alpine"
@@ -23,6 +30,7 @@ abstract class TestIntegration : AfterEachCallback, BeforeEachCallback {
             withDatabaseName("oli-saude")
             withUsername("oli-saude")
             withPassword("oli-saude")
+            withReuse(true)
         }
 
         @JvmStatic
@@ -36,14 +44,14 @@ abstract class TestIntegration : AfterEachCallback, BeforeEachCallback {
         }
     }
 
-    override fun beforeEach(context: ExtensionContext?) {
+    override fun beforeAll(context: ExtensionContext?) {
         if (!postgresContainer.isRunning) {
             postgresContainer.start()
             migrateDatabase()
         }
     }
 
-    override fun afterEach(context: ExtensionContext?) {
+    override fun afterAll(context: ExtensionContext?) {
         if (postgresContainer.isRunning) {
             postgresContainer.stop()
         }
