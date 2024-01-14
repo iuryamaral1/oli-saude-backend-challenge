@@ -1,18 +1,28 @@
 package com.oli.saude.gateways
 
 import com.oli.saude.TestIntegration
+import com.oli.saude.domain.models.clients.Client
+import com.oli.saude.domain.models.clients.enums.Sex
+import com.oli.saude.domain.repository.clients.ClientRepository
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.http.MediaType
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.post
+import org.springframework.test.web.servlet.put
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.util.*
 
 @AutoConfigureMockMvc
 class ClientControllerTest : TestIntegration() {
 
     @Autowired
     private val mockMvc: MockMvc? = null
+
+    @Autowired
+    private lateinit var clientRepository: ClientRepository
 
     @Test
     fun `Should create a new client successfully`() {
@@ -78,5 +88,59 @@ class ClientControllerTest : TestIntegration() {
             jsonPath("$.message") { value("Birth date must be a past or present date") }
             jsonPath("$.timestamp") { isNotEmpty() }
         }?.andReturn()
+    }
+
+    @Test
+    fun `Should return 404 when trying to update a client that does not exist`() {
+
+        val clientRequestBody = """
+            {
+               "name": "John Travolta",
+               "sex": "M",
+               "birthDate": "2000-01-01"
+            }
+        """.trimIndent()
+
+        val id = UUID.randomUUID()
+        mockMvc?.put("/v1/clients/$id") {
+            contentType = MediaType.APPLICATION_JSON
+            content = clientRequestBody
+        }?.andExpect {
+            status { isNotFound() }
+            jsonPath("$.message") { value("Client not found for id: $id") }
+            jsonPath("$.timestamp") { isNotEmpty() }
+        }?.andReturn()
+    }
+
+    @Test
+    fun `Should update client successfully`() {
+
+        val createdClient = clientRepository.save(
+            Client(
+                name = "John Travolta",
+                birthDate = LocalDate.of(2020, 1, 1),
+                sex = Sex.M,
+                createdAt = LocalDateTime.now(),
+                updatedAt = LocalDateTime.now()
+            )
+        )
+
+        val requestToUpdateClient = """
+            {
+               "name": "Scarlet Johanson",
+               "sex": "F",
+               "birthDate": "2000-01-01"
+            }
+        """.trimIndent()
+
+        mockMvc?.put("/v1/clients/${createdClient.id}") {
+            contentType = MediaType.APPLICATION_JSON
+            content = requestToUpdateClient
+        }?.andExpect {
+            status { isOk() }
+            jsonPath("$.id") { value(createdClient.id.toString()) }
+            jsonPath("$.name") { value("Scarlet Johanson") }
+            jsonPath("$.birthDate") { value("01/01/2000") }
+        }
     }
 }

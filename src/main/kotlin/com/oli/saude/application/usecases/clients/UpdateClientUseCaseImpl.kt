@@ -5,7 +5,6 @@ import com.oli.saude.domain.models.clients.Client
 import com.oli.saude.domain.repository.clients.ClientRepository
 import com.oli.saude.util.TimeProvider
 import org.springframework.stereotype.Component
-import java.time.LocalDateTime
 
 @Component
 class UpdateClientUseCaseImpl(
@@ -13,17 +12,17 @@ class UpdateClientUseCaseImpl(
     private val timeProvider: TimeProvider
 ) : UpdateClientUseCase {
 
-    override fun invoke(clientToUpdate: Client): Client =
+    override fun invoke(client: Client): Client =
         kotlin.run {
-            clientRepository.findById(clientToUpdate.id!!).takeIf { it.isPresent }?.get()
-                ?: throw ClientNotFoundException("Client not found for id: ${clientToUpdate.id}")
+            clientRepository.findById(client.id!!).takeIf { it.isPresent }?.get()
+                ?: throw ClientNotFoundException("Client not found for id: ${client.id}")
         }.let {
             clientRepository.save(
                 it.copy(
-                    id = clientToUpdate.id,
-                    name = clientToUpdate.name,
-                    birthDate = clientToUpdate.birthDate,
-                    sex = clientToUpdate.sex,
+                    id = client.id,
+                    name = client.name,
+                    birthDate = client.birthDate,
+                    sex = client.sex,
                     updatedAt = timeProvider.getCurrentDateTime()
                 )
             )
