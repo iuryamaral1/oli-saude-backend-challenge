@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.http.MediaType
 import org.springframework.test.web.servlet.MockMvc
+import org.springframework.test.web.servlet.get
 import org.springframework.test.web.servlet.post
 import org.springframework.test.web.servlet.put
 import java.time.LocalDate
@@ -141,6 +142,29 @@ class ClientControllerTest : TestIntegration() {
             jsonPath("$.id") { value(createdClient.id.toString()) }
             jsonPath("$.name") { value("Scarlet Johanson") }
             jsonPath("$.birthDate") { value("01/01/2000") }
+        }
+    }
+
+    @Test
+    fun `Should find client by id`() {
+
+        val createdClient = clientRepository.save(
+            Client(
+                name = "John Travolta",
+                birthDate = LocalDate.of(2020, 1, 1),
+                sex = Sex.M,
+                createdAt = LocalDateTime.now(),
+                updatedAt = LocalDateTime.now()
+            )
+        )
+
+        mockMvc?.get("/v1/clients/${createdClient.id}") {
+            contentType = MediaType.APPLICATION_JSON
+        }?.andExpect {
+            status { isOk() }
+            jsonPath("$.id") { value(createdClient.id.toString()) }
+            jsonPath("$.name") { value("John Travolta") }
+            jsonPath("$.birthDate") { value("01/01/2020") }
         }
     }
 }
