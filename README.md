@@ -143,7 +143,7 @@ This project is integrated with GitHub Actions. You can check the status of the 
 
 - [x] Create a client
 - [x] Update a client
-- [ ] Get specific client
+- [x] Get specific client
 - [ ] Get all clients
 - [ ] Add client's health problems
 - [ ] Remove client's health problems
